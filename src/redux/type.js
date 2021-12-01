@@ -1,0 +1,16 @@
+export const TEXTAREA = "TEXTAREA";
+export const CHANNELS_CONTENT = "CHANNELS_CONTENT";
+export const CHANNELS_SAVE = "CHANNELS_SAVE";
+export const CONTENT_CHANNELS = "CONTENT_CHANNELS";
+export const UPDATE_CHANNELS = "UPDATE_CHANNELS";
+export const CONTENT_TV_CHANNEL = "CONTENT_TV_CHANNEL";
+export const SUMMA_TV = "SUMMA_TV";
+export const INPUT_USER = "INPUT_USER";
+export const PLACE_SUMMA = "PLACE_SUMMA";
+export const BTN_PLACE = "BTN_PLACE";
+export const IMG_INPUT = "IMG_INPUT";
+export const TEXT_JOB = "TEXT_JOB"
+export const SUMMA_TOTAL = "SUMMA_TOTAL";
+export const CONTENTS_AD_2 = "CONTENTS_AD_2";
+export const CONTENTS_CHANNELS_AD_2 = "CONTENTS_CHANNELS_AD_2";
+export const TOTAL_SUMMA_AD_2 = "TOTAL_SUMMA_AD_2";
