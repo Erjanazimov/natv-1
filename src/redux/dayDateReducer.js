@@ -3,7 +3,8 @@ import {CHANNELS_SAVE, CONTENT_CHANNELS, SUMMA_TOTAL, SUMMA_TV} from "./type";
 const initialState = {
     saveChannels: {},
     contentTV: [],
-    symbol: 0
+    symbol: 0,
+    formatDay: []
 }
 
 export const dayDateReducer = (state = initialState, action) => {
@@ -16,7 +17,8 @@ export const dayDateReducer = (state = initialState, action) => {
         case CONTENT_CHANNELS:
             return {
                 ...state,
-                contentTV: action.contentDuplicates
+                contentTV: action.contentDuplicates,
+                formatDay: action.formatDay
             }
 
         case SUMMA_TV:

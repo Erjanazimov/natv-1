@@ -1,6 +1,5 @@
 import React from "react";
 import Header from "../../Components/Header/Header";
-import {NavLink} from "react-router-dom";
 import ChannelList from "../../Components/Form/ChannelList/ChannelList";
 import InfoUser from "../../Components/Form/InfoUser/InfoUser";
 import BlockFile from "./BlockFile/BlockFile";
@@ -21,8 +20,8 @@ const Glavnaya2 = (props) => {
         <div className="wrapper">
             <div className="container-natv content-natv">
                 <nav className="topMenu d-flex justify-content-around">
-                    <NavLink to="/" className="active-2">{t("navstr")}</NavLink>
-                    <NavLink to="/glavnaya2" className="active">{t("navbar")}  </NavLink>
+                    <a href="/" className="active-2">{t("navstr")}</a>
+                    <a href="/glavnaya2" className="active">{t("navbar")}  </a>
                 </nav>
         <Header TextBanner={t("TextbanerB")}/>
                 <form className="form">

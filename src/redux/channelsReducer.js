@@ -24,12 +24,14 @@ export const channelsReducer = (state = initialState, action) => {
             return {
                 ...state,
                 contentChannels: channelsNew,
-                addSumma: action.adSumma
+                addSumma: action.adSumma,
             }
         case UPDATE_CHANNELS:
-            let text = action.updateTv.text;
+            let text = action.updateTv.text.length;
             let channelsContent = action.updateTv.channelsContent.map(item => {
+                if(item.summaInput !== undefined) {
                     item.summaInput.innerHTML = (item.price_text_ad * item.day.length) * text + " сом";
+                }
                     return{
                         name: item.name,
                         day: item.day,
@@ -44,7 +46,9 @@ export const channelsReducer = (state = initialState, action) => {
             let texts = action.texts;
             if(texts) {
                 let content = action.contentDuplicates.map(item => {
-                    item.summaInput.innerHTML = (item.price_text_ad * item.day.length) * texts.length + " сом";
+                    if(item.summaInput !== undefined) {
+                        item.summaInput.innerHTML = (item.price_text_ad * item.day.length) * texts.length + " сом";
+                    }
                     return {
                         name: item.name,
                         day: item.day,

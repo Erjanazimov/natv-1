@@ -10,7 +10,7 @@ import {
     IMG_INPUT,
     INPUT_USER,
     PLACE_SUMMA,
-    SUMMA_CHANNELS_TOTAL,
+    SUMMA_CHANNELS_TOTAL, SUMMA_ORIGINAL,
     SUMMA_TOTAL,
     SUMMA_TV,
     TEXT_JOB,
@@ -61,12 +61,13 @@ export const saveContent = (channelsSave) => {
     }
 }
 
-export const content_channels = (content) => {
+export const content_channels = (content, formatDay) => {
     duplicates.push(content);
     let contentDuplicates = removeDuplicates(duplicates, "name");
     return{
         type:CONTENT_CHANNELS,
-        contentDuplicates
+        contentDuplicates,
+        formatDay
     }
 }
 

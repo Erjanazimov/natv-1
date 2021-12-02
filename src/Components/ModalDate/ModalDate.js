@@ -52,7 +52,8 @@ function ModalDate() {
         obj.image = date.dayDateReducer.saveChannels.image;
         obj.summaInput = date.dayDateReducer.saveChannels.summaInput;
         obj.day = formatDay;
-        dispatch(content_channels(obj));
+
+        dispatch(content_channels(obj, formatDay));
         dispatch(channelsTvContent(obj, texts));
         date.dayDateReducer.saveChannels.dateSave.innerHTML = `<span>${formatDate}</span>`;
         setDayDate([]);

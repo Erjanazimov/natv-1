@@ -38,7 +38,7 @@ function InfoUser(props){
         dispatch(summaContent(summa))
         if (userInfo.textareaReducer.text === "") {
             toast.error("Заполните текст вашего объявления")
-        } else if (mapChannels.length === 0) {
+        } else if (userInfo.dayDateReducer.symbol * userInfo.textareaReducer.symbol === 0) {
             toast.error("Выберите хотя бы одну дату показа")
         } else if (userInfo.infoUserReducer.phone === "") {
             toast.error("Заполните номер телефона")
@@ -60,6 +60,7 @@ function InfoUser(props){
             postUser(place)
             toast.success("Нажмите еще раз!")
         }
+
     }
 
     const postUser = (place) => {

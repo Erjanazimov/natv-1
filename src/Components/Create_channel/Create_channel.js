@@ -1,7 +1,5 @@
 import React from "react";
-import {NavLink} from "react-router-dom";
 import Header from "../Header/Header";
-import Footer from "../Footer/Footer";
 import {withTranslation} from "react-i18next";
 import Rekvisity from "./Rekvisity";
 

@@ -1,11 +1,11 @@
 import React from "react";
 import {useSelector} from "react-redux";
-import {channelsReducer} from "../../redux/channelsReducer";
 
 function Rekvisity(){
     let create = useSelector(state => {
         return state;
     })
+
     return(
         <>
             <div className="col-lg-8 col-md-7">

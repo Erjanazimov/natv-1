@@ -18,8 +18,8 @@ const Dlya_yuridicheskih_lic = (props) => {
             <div className="wrapper">
                 <div className="container-natv content-natv">
                     <nav className="topMenu d-flex justify-content-around">
-                        <NavLink to="/" className="active-2">{t("navstr")}</NavLink>
-                        <NavLink to="/glavnaya2" className="active-2">{t("navbar")} </NavLink>
+                        <a href="/" className="active-2">{t("navstr")}</a>
+                        <a href="/glavnaya2" className="active">{t("navbar")}  </a>
                     </nav>
                     <Header TextBanner={resultText}/>
                     <DlyaYuridicheskihLicCom/>

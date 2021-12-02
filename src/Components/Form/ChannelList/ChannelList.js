@@ -2,7 +2,7 @@ import React, {useEffect} from "react";
 import ContentNews from "./ContentNews/ContentNews";
 import { withTranslation } from "react-i18next";
 import {useDispatch, useSelector} from "react-redux";
-import {channelsContent, saveContent, summaTV} from "../../../redux/actions";
+import {channelsContent, summaOrig, summaTV} from "../../../redux/actions";
 import ContentNews2 from "./ContentNews2/ContentNews2";
 import ModalDate from "../../ModalDate/ModalDate";
 import ModalDate2 from "../../ModalDate/ModalDate2";
@@ -11,20 +11,16 @@ import ModalDate2 from "../../ModalDate/ModalDate2";
 function ChannelList(props) {
     const {t} = props;
     const adSumma = React.createRef();
+    const summaRef = React.createRef();
     const channelsTv = useSelector(state => {
         return state;
     })
     const dispatch = useDispatch();
-    const total = useSelector(state => {
-        const {channelsImagesReducer} = state;
-        return channelsImagesReducer.total
-    })
     useEffect(() => {
         dispatch(channelsContent(adSumma.current))
         if(props.nameComponents === "ad1"){
             dispatch(summaTV(0))
         }
-
     },[])
 
 
@@ -68,8 +64,8 @@ function ChannelList(props) {
 
                                 <div className="total-block">
                                     <div className='floatR'> {t("tv5")}
-                                       <span className={props.nameComponents === "ad1" ? "fw-bold" : "d-none"}> {channelsTv.dayDateReducer.symbol * channelsTv.textareaReducer.symbol} сом
-                                       </span>
+                                       <span ref={summaRef} className={props.nameComponents === "ad1" ? "fw-bold" : "d-none"}> {channelsTv.dayDateReducer.symbol * channelsTv.textareaReducer.symbol}
+                                       </span> <span className="fw-bold">сом</span>
                                         <span ref={adSumma} className={props.nameComponents === "ad2" ? "fw-bold" : "d-none"}> 0 сом
                                        </span>
                                     </div>

@@ -34,7 +34,7 @@ function ContentNews2(props) {
 								</span>
                             </div>
                             <div className="d-flex align-items-center mx" >
-                                <span ref={summa} className="price-real" id="suma"> 0.0 сом</span>
+                                <span ref={summa} className="price-real" id="suma"> 0 сом</span>
                             </div>
                         </div>
                     </div>

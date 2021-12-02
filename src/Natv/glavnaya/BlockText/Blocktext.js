@@ -19,7 +19,7 @@ function Blocktext(props){
         let textarea = e.target.value;
         dispatch(textareaSymbol(textarea, textarea.replace(/\s/g, '').length));
         let booleanContent = {
-            text: channelsContent.textareaReducer.symbol + 1,
+            text: textarea.replace(/\s/g, ''),
             channelsContent: channelsContent.dayDateReducer.contentTV,
         };
 
@@ -28,7 +28,6 @@ function Blocktext(props){
            dispatch(updateChannels(booleanContent))
            dispatch(summaTV());
        }
-
     }
 
         return (
