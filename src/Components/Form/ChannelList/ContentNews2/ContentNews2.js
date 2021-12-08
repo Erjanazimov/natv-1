@@ -1,7 +1,7 @@
 import React from "react";
 import { withTranslation } from "react-i18next";
 import {useDispatch} from "react-redux";
-import {contentsAd2, contentsAdSave2} from "../../../../redux/actions";
+import { contentsAdSave2} from "../../../../redux/actions";
 
 function ContentNews2(props) {
     const summa = React.createRef();
@@ -19,7 +19,7 @@ function ContentNews2(props) {
         dispatch(contentsAdSave2(objContentsAd2))
     }
         return(
-                <div onClick={contentsAdSave} data-bs-toggle="modal" data-bs-target="#add-modal" >
+                <div onClick={contentsAdSave} data-bs-toggle="modal" data-bs-target="#add-modal2" >
                     <div id="idTV" >
                         <div className="d-flex justify-content-between mt-3 flex-wrap" >
                             <div className="d-flex align-items-center news" >
@@ -29,7 +29,7 @@ function ContentNews2(props) {
                                 <span className="one-title" >{props.name}</span>
                             </div>
                             <div className="d-flex align-items-center mt-3 wid" >
-                                <p ref={date} id="summa"  className="show-dates rounded-start">даты</p>
+                                <p id="summa" ref={date} className="show-dates rounded-start"></p>
                                 <span className="img-calen" >
 								</span>
                             </div>

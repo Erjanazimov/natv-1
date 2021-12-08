@@ -29,7 +29,7 @@ function BlockFile(props){
                         </div>
                     </div>
                     <p className="mt-3 input-group">
-                        <input ref={saveImages} className="form-control" type="text" id="formFile"/>
+                        <input ref={saveImages} className="form-control" type="text" id="formFile" placeholder="Добавьте ссылку на картинку"/>
                         <button onClick={imagesSave} type="button" className="btn mx-2 img-btn">{t("textZapBaner3")}</button>
                     </p>
                     <p className="rek mt-4">

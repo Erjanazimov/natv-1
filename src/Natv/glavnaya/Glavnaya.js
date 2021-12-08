@@ -5,6 +5,7 @@ import Blocktext from "./BlockText/Blocktext";
 import ChannelList from "../../Components/Form/ChannelList/ChannelList";
 import InfoUser from "../../Components/Form/InfoUser/InfoUser";
 import { withTranslation } from "react-i18next";
+import {NavLink} from "react-router-dom";
 
 const Glavnaya = (props) => {
     const { t } = props;
@@ -19,8 +20,8 @@ const Glavnaya = (props) => {
             <div className="wrapper">
                 <div className="container-natv content-natv">
                     <nav className="topMenu d-flex justify-content-around">
-                        <a href="#" className="active">{t("navstr")}</a>
-                        <a href="/glavnaya2" className="active-2">{t("navbar")} </a >
+                        <NavLink to="#" className="active">{t("navstr")}</NavLink>
+                        <NavLink to="/glavnaya2" className="active-2">{t("navbar")} </NavLink >
                     </nav>
 
                 <Header TextBanner={resultText}/>

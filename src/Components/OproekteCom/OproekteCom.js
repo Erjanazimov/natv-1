@@ -6,6 +6,7 @@ const OproekteCom = (props) => {
     return(
         <>
             <div className="pd-40 bg-white page">
+                <h1>{t("oper")}</h1>
                 <p>{t("OroektN2")}</p>
                 <p>{t("OroektN3")}</p>
                 <p>{t("OroektN4")}</p>

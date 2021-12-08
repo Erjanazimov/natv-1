@@ -5,6 +5,8 @@ import {dayDateReducer} from "./dayDateReducer";
 import {infoUserReducer} from "./infoUserReducer";
 import {imgInputReducer} from "./imgInputReducer";
 import {channelsImagesReducer} from "./channelsImagesReducer";
+import {appReducer} from "./appReducer";
+import {infoUser2Reducer} from "./infoUser2Reducer";
 
 
 export const rootReducer = combineReducers({
@@ -13,5 +15,7 @@ export const rootReducer = combineReducers({
     dayDateReducer,
     infoUserReducer,
     imgInputReducer,
-    channelsImagesReducer
+    channelsImagesReducer,
+    appReducer,
+    infoUser2Reducer
 })

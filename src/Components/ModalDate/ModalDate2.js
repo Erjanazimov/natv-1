@@ -4,14 +4,37 @@ import DayPicker, { DateUtils } from "react-day-picker";
 import 'react-day-picker/lib/style.css';
 import {useDispatch, useSelector} from "react-redux";
 import {contentsChannelsAd2, totalSummaAd2} from "../../redux/actions";
-import {channelsReducer} from "../../redux/channelsReducer";
+
 
 
 
 function ModalDate() {
     const [dayDate, setDayDate] = useState([])
     const modalState = useSelector(state => state)
-
+    const MONTHS = [
+        'Январь',
+        'Февраль',
+        'Март',
+        'Апрель',
+        'Май',
+        'Июнь',
+        'Июль',
+        'Август',
+        'Сентябрь',
+        'Октябрь',
+        'Ноябрь',
+        'Декабрь',
+    ];
+    const WEEKDAYS_LONG = [
+        'Воскресенье ',
+        'Суббота',
+        'Пятница',
+        'Четверг',
+        'Среда',
+        'Вторник',
+        'Понедельник',
+    ];
+    const WEEKDAYS_SHORT = ['Вс', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб'];
     const dispatch = useDispatch();
 
     const handleDayClick = (day, {selected}) => {
@@ -29,7 +52,8 @@ function ModalDate() {
 
     const imagesPriceBtn = () => {
         const formatDate = [];
-        const objData = {}
+        const objData = {};
+        const formatModal = []
         dayDate.map(item => {
             let resDate = new Date(item);
             let mm = resDate.getMonth() + 1;
@@ -38,19 +62,30 @@ function ModalDate() {
             let myDateString = yy + '-' + mm + '-' + dd;
             formatDate.push(myDateString);
         })
+
+        dayDate.map(item => {
+            let resDate = new Date(item);
+            let mm = resDate.getMonth() + 1;
+            let dd = resDate.getDate();
+            let yy = resDate.getFullYear(); //dd-mm-yy
+            let myDateString = dd + '/' + mm + '/' + yy;
+            formatModal.push(myDateString);
+        })
         objData.name = modalState.channelsImagesReducer.saveChannelsImages.name;
         objData.id = modalState.channelsImagesReducer.saveChannelsImages.id;
         objData.summa = modalState.channelsImagesReducer.saveChannelsImages.summa;
         objData.date = modalState.channelsImagesReducer.saveChannelsImages.date;
         objData.price_image_ad = modalState.channelsImagesReducer.saveChannelsImages.price_image_ad;
         objData.day = formatDate;
+        objData.formatModal = formatModal
         dispatch(contentsChannelsAd2(objData));
-        dispatch(totalSummaAd2(modalState.channelsReducer.addSumma))
+        dispatch(totalSummaAd2())
+        setDayDate([])
     }
 
         return (
             <>
-                <div className="modal fade " id="add-modal" tabIndex="-1" aria-labelledby="exampleModalLabel"
+                <div className="modal fade " id="add-modal2" tabIndex="-1" aria-labelledby="exampleModalLabel"
                      aria-hidden="true">
                     <div className="d-none">
                     </div>
@@ -60,6 +95,9 @@ function ModalDate() {
                                 <div className="calendar">
                                     <DayPicker
                                         selectedDays={dayDate}
+                                        months={MONTHS}
+                                        weekdaysLong={WEEKDAYS_LONG}
+                                        weekdaysShort={WEEKDAYS_SHORT}
                                         onDayClick={handleDayClick}
                                     />
                                 </div>

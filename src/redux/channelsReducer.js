@@ -47,7 +47,7 @@ export const channelsReducer = (state = initialState, action) => {
             if(texts) {
                 let content = action.contentDuplicates.map(item => {
                     if(item.summaInput !== undefined) {
-                        item.summaInput.innerHTML = (item.price_text_ad * item.day.length) * texts.length + " сом";
+                        item.summaInput.innerHTML = (item.price_text_ad * item.day.length) * texts.replace(/\s/g, '').length + " сом";
                     }
                     return {
                         name: item.name,

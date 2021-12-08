@@ -8,6 +8,30 @@ import {channelsTvContent, content_channels, summaTV, textJob} from "../../redux
 function ModalDate() {
     const [dayDate, setDayDate] = useState([])
     const dispatch = useDispatch()
+    const MONTHS = [
+        'Январь',
+        'Февраль',
+        'Март',
+        'Апрель',
+        'Май',
+        'Июнь',
+        'Июль',
+        'Август',
+        'Сентябрь',
+        'Октябрь',
+        'Ноябрь',
+        'Декабрь',
+    ];
+    const WEEKDAYS_LONG = [
+        'Воскресенье ',
+        'Суббота',
+        'Пятница',
+        'Четверг',
+        'Среда',
+        'Вторник',
+        'Понедельник',
+    ];
+    const WEEKDAYS_SHORT = ['Вс', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб'];
 
     const date = useSelector(state => {
         return state
@@ -56,8 +80,8 @@ function ModalDate() {
         dispatch(content_channels(obj, formatDay));
         dispatch(channelsTvContent(obj, texts));
         date.dayDateReducer.saveChannels.dateSave.innerHTML = `<span>${formatDate}</span>`;
+        dispatch(summaTV());
         setDayDate([]);
-            dispatch(summaTV());
     }
 
         return (
@@ -70,8 +94,12 @@ function ModalDate() {
                         <div className="modal-content">
                             <div className="modal-body">
                                 <div className="calendar">
+
                                     <DayPicker
                                         selectedDays={dayDate}
+                                        months={MONTHS}
+                                        weekdaysLong={WEEKDAYS_LONG}
+                                        weekdaysShort={WEEKDAYS_SHORT}
                                         onDayClick={handleDayClick}
                                     />
                                 </div>
