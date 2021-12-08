@@ -1,24 +1,19 @@
 import {
     BTN_PLACE,
     CHANNELS_CONTENT,
-    CHANNELS_IMAGES,
     CHANNELS_SAVE,
     CONTENT_CHANNELS,
     CONTENT_TV_CHANNEL,
-    CONTENTS_AD_2, CONTENTS_CHANNELS_AD_2,
-    CONTENTS_TV_AD2,
+    CONTENTS_AD_2, CONTENTS_CHANNELS_AD_2, ERROR_DISPLAY_OFF, ERROR_DISPLAY_ON,
     IMG_INPUT,
-    INPUT_USER,
-    PLACE_SUMMA,
-    SUMMA_CHANNELS_TOTAL, SUMMA_ORIGINAL,
-    SUMMA_TOTAL,
+    INPUT_USER, LOADER_DISPLAY_OFF, LOADER_DISPLAY_ON,
+    PLACE_SUMMA, SAVE_BTN_INFO,
     SUMMA_TV,
-    TEXT_JOB,
     TEXTAREA, TOTAL_SUMMA_AD_2,
     UPDATE_CHANNELS
 } from "./type";
 
-const duplicates = []
+let duplicates = []
 
 function removeDuplicates(originalArray, prop) {
     let newArray = [];
@@ -44,13 +39,25 @@ export const textareaSymbol = (text, symbol) => {
 
 export const channelsContent = (adSumma) => {
     return async dispatch => {
-        const response = await fetch("https://natv-apps.herokuapp.com/api/v1/active-channels/");
-        const jsonData = await response.json();
-        dispatch({
-            type: CHANNELS_CONTENT,
-            data: jsonData,
-            adSumma
-        })
+        try {
+            dispatch(loaderOn());
+            const response = await fetch("https://natv-apps.herokuapp.com/api/v1/active-channels/");
+            const jsonData = await response.json();
+            dispatch({
+                type: CHANNELS_CONTENT,
+                data: jsonData,
+                adSumma
+            })
+            dispatch(errorOff())
+            dispatch(loaderOff());
+        } catch (err){
+            dispatch(errorOn("Ошибка API"))
+            dispatch(loaderOff())
+
+            setTimeout(() => {
+                dispatch(errorOff())
+            }, 10000)
+        }
     }
 }
 
@@ -89,9 +96,17 @@ export const channelsTvContent = (channels, texts) => {
 }
 
 export const summaTV = (num) => {
+    if (num === 0) {
+        duplicates = []
+    }
+    let contentDuplicates = removeDuplicates(duplicates, "name");
+    let summa = 0
+    contentDuplicates.map(item => {
+        summa += item.price_text_ad * item.day.length
+    })
     return{
         type: SUMMA_TV,
-        num
+        summa
     }
 }
 
@@ -136,6 +151,9 @@ export const contentsAdSave2 = (contents) => {
 export const contentsChannelsAd2 = (channels) => {
     duplicates.push(channels);
     let contentDuplicates = removeDuplicates(duplicates, "name");
+    contentDuplicates.map(item => {
+        item.date.innerHTML = ` <span> ${item.formatModal} </span>`
+    })
     return{
         type: CONTENTS_CHANNELS_AD_2,
         contentDuplicates
@@ -143,8 +161,49 @@ export const contentsChannelsAd2 = (channels) => {
 }
 
 export const totalSummaAd2 = (input) => {
+    if(input === 2){
+        duplicates = []
+    }
+    let contentDuplicates = removeDuplicates(duplicates, "name");
+    let summa = 0;
+    contentDuplicates.map(item => {
+        summa += item.price_image_ad * item.day.length
+    })
     return{
         type: TOTAL_SUMMA_AD_2,
-        input
+        summa
+    }
+}
+
+export function loaderOn(){
+    return{
+        type: LOADER_DISPLAY_ON
+    }
+}
+
+export function loaderOff(){
+    return{
+        type: LOADER_DISPLAY_OFF
+    }
+}
+
+export function errorOn(text) {
+    return{
+        type: ERROR_DISPLAY_ON,
+        text
+    }
+}
+
+export function errorOff() {
+    return{
+        type: ERROR_DISPLAY_OFF,
+    }
+}
+
+export const infoUser2 = (infoBanner, url) =>{
+    return{
+        type: SAVE_BTN_INFO,
+        infoBanner,
+        url
     }
 }

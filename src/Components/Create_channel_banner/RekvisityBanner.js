@@ -1,11 +1,10 @@
 import React from "react";
 import {useSelector} from "react-redux";
 
-function Rekvisity(){
-    let create = useSelector(state => {
+function RekvisityBanner(){
+    const create = useSelector(state => {
         return state;
     })
-
     return(
         <>
             <div className="col-lg-8 col-md-7">
@@ -21,7 +20,7 @@ function Rekvisity(){
                             </p>
                         </div>
                         <div className="col-sm-6">
-                            <div className="code">{create.infoUserReducer.placeUser.payment_code}</div>
+                            <div className="code">{create.infoUser2Reducer.infoUserBanner.payment_code}</div>
                         </div>
                         <div className="col-sm-6">
                             <p className="hint"></p><p>Вы имеете возможность оплатить объявление картами Visa и
@@ -42,7 +41,7 @@ function Rekvisity(){
                                 если сумма к оплате будет меньше, заявка не будет размещена.</p>
                         </div>
                         <div className="col-sm-6">
-                            <div className="sum">{create.infoUserReducer.placeUser.price} сом</div>
+                            <div className="sum"> {create.infoUser2Reducer.infoUserBanner.price} сом</div>
                         </div>
                     </div>
                 </div>
@@ -50,11 +49,10 @@ function Rekvisity(){
                 <div className="order-one-row">
                     <div className="row">
                         <div className="col-sm-6">
-                            <h4>текст объявления</h4>
-                            <p className="hint"><span>{create.textareaReducer.symbol} Символов:</span></p>
+                            <p className="fs-6">ЗАГРУЖЕННОЕ ИЗОБРАЖЕНИЕ</p>
                         </div>
                         <div className="col-sm-6">
-                            <div className="mes"> {create.textareaReducer.text} </div>
+                            <div className="mes">  <img src={create.infoUser2Reducer.infoUserBanner.image}/></div>
                         </div>
                     </div>
                 </div>
@@ -69,11 +67,15 @@ function Rekvisity(){
                             <ul className="ch-list list-unstyled">
                                 <li>
                                     <div className="pinj">
-                                        {create.channelsReducer.channelsSave.map(item => {
-                                            return ` ${item.name}`
+                                        {create.channelsImagesReducer.contentsChannels.map(item => {
+                                            return ` ${item.name},`
                                         })}
                                     </div>
-                                    <div className="date">{create.infoUserReducer.placeUser.channels[0].dates.join(", ")}</div>
+                                    <div className="date">
+                                        {create.channelsImagesReducer.contentsChannels.map(item => {
+                                            return ` ${item.day},`
+                                        })}
+                                    </div>
                                 </li>
 
                             </ul>
@@ -90,7 +92,9 @@ function Rekvisity(){
                                 гарантировано. В случае неоплаты ваша заявка не будет выполнена.</p>
                         </div>
                         <div className="col-sm-6">
-                            <div className="mes">{create.infoUserReducer.placeUser.payment_day.slice(9, 10) + " декабря"}</div>
+                            <div className="mes">
+                                {create.infoUser2Reducer.infoUserBanner.payment_day.slice(9, 10) + " декабря"}
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -101,4 +105,4 @@ function Rekvisity(){
     )
 }
 
-export default Rekvisity;
+export default RekvisityBanner;
