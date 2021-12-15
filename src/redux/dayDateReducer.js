@@ -1,4 +1,4 @@
-import {CHANNELS_SAVE, CONTENT_CHANNELS, SUMMA_TOTAL, SUMMA_TV} from "./type";
+import {CHANNELS_SAVE, CONTENT_CHANNELS, SUMMA_TV} from "./type";
 
 const initialState = {
     saveChannels: {},
@@ -22,14 +22,14 @@ export const dayDateReducer = (state = initialState, action) => {
             }
 
         case SUMMA_TV:
-            let sum = 0;
-            state.contentTV.map(item => {
-                action.num === 0 ? item.day = [] : item.day = item.day
-                sum += (item.price_text_ad * item.day.length)
-            })
+            // let sum = 0;
+            // state.contentTV.map(item => {
+            //     action.num === 0 ? item.day = [] : item.day = item.day
+            //     sum += item.price_text_ad * item.day.length
+            // })
             return {
                 ...state,
-                symbol: action.num === 0 ? 0 : sum
+                symbol: action.summa
             }
         default:
             return state;

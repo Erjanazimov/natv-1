@@ -9,8 +9,8 @@ import Dlya_yuridicheskih_lic from "./Natv/Dlya_yuridicheskih_lic/Dlya_yuridiche
 import Voprosotvet from "./Natv/Voprosotvet/Voprosotvet";
 import Oferta from "./Natv/Oferta/Oferta";
 import Pravila_zapolneniya_teksta from "./Natv/Pravila_zapolneniya_teksta/Pravila_zapolneniya_teksta";
-import ModalDate from "./Components/ModalDate/ModalDate";
 import Create_channel from "./Components/Create_channel/Create_channel";
+import Create_channelBanner from "./Components/Create_channel_banner/Create_channelBanner";
 
 const App = () => {
     return(
@@ -25,6 +25,7 @@ const App = () => {
                 <Route path="/oferta" component={Oferta} exact />
                 <Route path="/pravila_zapolneniya_teksta" component={Pravila_zapolneniya_teksta} exact />
                 <Route path="/create_channel" component={Create_channel} exact />
+                <Route path="/create_channelBanner" component={Create_channelBanner} exact />
             </BrowserRouter>
 
         </>

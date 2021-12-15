@@ -202,6 +202,19 @@ header .text h1{
     margin-bottom: 0;
 }
 
+.error{
+    margin: 0 auto;
+    left: 40%;
+    top: -80px;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 18px;
+    max-width: 240px;
+    color: #fff;
+    background: #c20937;
+    padding: 10px 20px;
+    border: 1px solid rgba(10, 10, 10, 0.25);
+}
 .dflex{
     display: flex;
     justify-content: space-between;
@@ -318,6 +331,14 @@ header .text h1{
 
 .pdb-40{
     padding-bottom: 40px;
+}
+
+.errorPhone{
+    border: 2px solid red;
+}
+
+.textrd{
+    color: red;
 }
 
 .channel-list-cont{
@@ -445,6 +466,11 @@ label{
 
 .news{
     width: 28%;
+}
+
+.mes img{
+    width: 224px;
+    height: 151px;
 }
 
 .textarea-fons{
@@ -762,6 +788,10 @@ footer li{
         font-size: 16px;
     }
 
+    .flexW{
+        flex-wrap: wrap;
+    }
+
     .container-natv{
 
     }
@@ -789,7 +819,7 @@ footer li{
     }
 
     .img-calen{
-        width: 64px;
+        width: 34px;
     }
 
 
@@ -810,10 +840,6 @@ footer li{
 
     .text-enter {
         height: 240px;
-    }
-
-    .date{
-        margin-left: 160px;
     }
 
     .langs a{
@@ -855,9 +881,9 @@ footer li{
         display: none;
     }
 
-    .d-none{
-        display: block !important;
-    }
+    /*.d-none{*/
+    /*    display: block !important;*/
+    /*}*/
 
     .one-title{
         font-size: 17px;
@@ -883,6 +909,10 @@ footer li{
         margin: 0 auto;
     }
 
+    .paybox-submit{
+        padding: 15px 20px;
+    }
+
 }
 @media screen and (max-width: 767px){
     .container-natv{
@@ -895,6 +925,7 @@ footer li{
     .logo{
         max-width: 120px;
     }
+
 
     .langs{
         margin-top: 30px;
@@ -984,7 +1015,7 @@ footer li{
     }
 
     .list-unstyled{
-        margin: -33px 0px 0px 0px;
+        margin: 10px 0px 0px 0px;
     }
 
     footer{
@@ -1039,6 +1070,31 @@ footer li{
         line-height: 1;
     }
 
+    .code{
+        font-size: 19px;
+        color: #fff;
+        background: #c20937;
+        padding: 0 12px;
+        display: inline-block;
+        height: 32px;
+    }
+
+    .pinj{
+        font-size: 14px;
+    }
+    .paybox-submit {
+        padding: 12px 54px;
+    }
+
+    .imgpayment{
+        width: 70px;
+        padding-top: 15px;
+    }
+
+    .sum{
+        font-size: 20px;
+    }
+
 
     .floatR{
         float: right;
@@ -1049,6 +1105,22 @@ footer li{
 @media screen and (max-width: 570px){
     .container-natv{
         width: 100%;
+    }
+
+    .DayPicker-Month{
+        width: 320px;
+    }
+
+    .order-one-row{
+        padding-top: 28px;
+    }
+
+    .text-title h3{
+        font-size: 10px;
+    }
+
+    .pinj{
+        margin-top: 35px;
     }
 
     body{
@@ -1063,5 +1135,20 @@ footer li{
         font-size: 10px;
     }
 
+    .summad{
+        display: none;
+    }
+
+}
+
+@media screen and (max-width: 390px){
+    .DayPicker-Month{
+        width: 0px;
+    }
+
+    .btn-cont .btn-ntv{
+        font-size: 10px;
+        font-weight: bold;
+    }
 }
 

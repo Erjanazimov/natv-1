@@ -1,20 +1,20 @@
 import React from "react";
 import Header from "../Header/Header";
 import {withTranslation} from "react-i18next";
-import Rekvisity from "./Rekvisity";
+import RekvisityBanner from "./RekvisityBanner";
 import Footer from "../Footer/Footer";
 import {useSelector} from "react-redux";
 
 
-function Create_channel(props){
+function Create_channelBanner(props){
 const { t } = props;
-const error = useSelector(state => state.infoUserReducer.placeUser.payment_code)
+    const error = useSelector(state => state.infoUser2Reducer.infoUserBanner.payment_code)
     return (
         <div className="wrapper">
             <div className="container-natv content-natv">
                 <nav className="topMenu d-flex justify-content-around">
-                    <a href="/" className="active">{t("navstr")}</a>
-                    <a href="/glavnaya2" className="active-2">{t("navbar")} </a >
+                    <a href="/" className="active-2">{t("navstr")}</a>
+                    <a href="/glavnaya2" className=" active">{t("navbar")} </a >
                 </nav>
                 <Header TextBanner="ВСЕГО 1 ШАГ ДО РАЗМЕЩЕНИЯ БЕГУЩЕЙ СТРОКИ! ОПЛАТИТЕ ЛЮБЫМ УДОБНЫМ ДЛЯ ВАС СПОСОБОМ!"/>
                 <div className="pd-40 bg-white order">
@@ -27,11 +27,10 @@ const error = useSelector(state => state.infoUserReducer.placeUser.payment_code)
                                 внести оплату любым удобным для Вас способом.</p>
                             <hr/>
                             {error === undefined ? <div> <h1>Ошибка</h1>
-                            <h3>И за перезагрузки сайта, заполните занова данные!!!</h3>
-                            </div> :
-                                <Rekvisity />
+                                    <h3>И за перезагрузки сайта, заполните занова данные!!!</h3>
+                                </div> :
+                                <RekvisityBanner/>
                             }
-
 
                         </div>
                         <div className="summad">
@@ -62,4 +61,4 @@ const error = useSelector(state => state.infoUserReducer.placeUser.payment_code)
     )
 }
 
-export default withTranslation() (Create_channel);
+export default withTranslation() (Create_channelBanner);
